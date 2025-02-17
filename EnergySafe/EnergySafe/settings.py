@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / 'core' / 'static',  # Asegúrate de que la ruta esté correctamente configurada
 ]
 
 # Application definition
