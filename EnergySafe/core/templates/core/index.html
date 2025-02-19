@@ -8,41 +8,49 @@
   <link rel="icon" href="{% static 'images/Logo.png' %}">
   <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 </head>
-<body >
+<body>
 <div class="container" id="container">
 	<div class="logo-container">
 		<img src="{% static 'images/logo.png' %}" alt="EnergySafe Logo">
 	</div>	
+
+	<!-- Registro -->
 	<div class="form-container sign-up-container">
-		<form action="#">
+		<form method="POST" action="{% url 'register' %}">
+			{% csrf_token %}
 			<h1>Create Account</h1>
 			<div class="social-container">
-				<a href="https://www.facebook.com/FreeWebsiteCode/" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="https://twitter.com/freewebsitecode" class="social"><i class="fab fa-twitter"></i></a>
-				<a href="https://www.linkedin.com/in/freewebsitecode/" class="social"><i class="fab fa-linkedin-in"></i></a>
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-twitter"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<button>Sign Up</button>
+			<input type="text" name="username" placeholder="Username" required />
+			<input type="email" name="email" placeholder="Email" required />
+			<input type="password" name="password1" placeholder="Password" required />
+			<input type="password" name="password2" placeholder="Confirm Password" required />
+			<button type="submit">Sign Up</button>
 		</form>
 	</div>
+
+	<!-- Inicio de sesión -->
 	<div class="form-container sign-in-container">
-		<form action="#">
+		<form method="POST" action="{% url 'login' %}">
+			{% csrf_token %}
 			<h1>Sign in</h1>
 			<div class="social-container">
-				<a href="https://www.facebook.com/FreeWebsiteCode/" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="https://twitter.com/freewebsitecode" class="social"><i class="fab fa-twitter"></i></a>
-				<a href="https://www.linkedin.com/in/freewebsitecode/" class="social"><i class="fab fa-linkedin-in"></i></a>
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-twitter"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your account</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<input type="text" name="username" placeholder="Username" required />
+			<input type="password" name="password" placeholder="Password" required />
 			<a href="#">Forgot your password?</a>
-			<button>Sign In</button>
+			<button type="submit">Sign In</button>
 		</form>
 	</div>
+
 	<div class="overlay-container">
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
@@ -59,8 +67,7 @@
 	</div>
 </div>
 
-<!-- partial -->
-  <script src="{% static 'js/script.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
 
 </body>
 </html>

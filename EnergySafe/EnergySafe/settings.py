@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from mongoengine import connect
+
+connect(db="EnergySafe", host="mongodb://localhost:27017/EnergySafe")
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -81,10 +85,17 @@ WSGI_APPLICATION = 'EnergySafe.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'EnergySafe',
+        'CLIENT': {
+            'host': 'mongodb://localhost:27017/',
+        }
     }
 }
+
+AUTH_USER_MODEL = 'core.CustomUser'  
+
+
 
 
 # Password validation
